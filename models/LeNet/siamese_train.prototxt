@@ -14,8 +14,8 @@ layer {
     mean_file: "data/ilsvrc12/imagenet_mean.binaryproto"
   }
   data_param {
-    source: "data/04004475_lmdb"
-    batch_size: 2 
+    source: "/cvgl/u/yuxiang/cache/04004475_lmdb"
+    batch_size: 64 
     backend: LMDB
   }
 
