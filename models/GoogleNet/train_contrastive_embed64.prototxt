@@ -2263,12 +2263,12 @@ layer {
   top: "fc8_custom"
   param {
     name: "fc8_custom_w"
-    lr_mult: 10
+    lr_mult: 1
     decay_mult: 1
   }
   param {
     name: "fc8_custom_b"
-    lr_mult: 20
+    lr_mult: 2
     decay_mult: 0
   }
   inner_product_param {
@@ -4570,12 +4570,12 @@ layer {
   top: "fc8_custom_p"
   param {
     name: "fc8_custom_w"
-    lr_mult: 10
+    lr_mult: 1
     decay_mult: 1
   }
   param {
     name: "fc8_custom_b"
-    lr_mult: 20
+    lr_mult: 2
     decay_mult: 0
   }
   inner_product_param {
