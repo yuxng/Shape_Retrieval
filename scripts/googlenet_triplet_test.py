@@ -33,7 +33,7 @@ CAFFE_MODEL = 'output/googlenet_triplet_embed64_iter_46.caffemodel'
 MEAN_FILE = 'data/imagenet_mean.binaryproto'
 LMDB_FILENAME = 'data/04004475_lmdb'
 embedding_dimension = 64
-batchsize = 48
+batchsize = 64
 
 caffe.set_device(0)
 caffe.set_mode_gpu()
