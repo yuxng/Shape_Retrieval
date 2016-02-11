@@ -14,8 +14,8 @@ layer {
     mean_file: "data/imagenet_mean.binaryproto"
   }
   data_param {
-    source: "data/CARS196_lmdb"
-    batch_size: 48
+    source: "data/04004475_lmdb"
+    batch_size: 48 
     backend: LMDB
   }
 }
