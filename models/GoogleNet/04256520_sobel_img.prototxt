@@ -1,7 +1,7 @@
 name: "GoogleNet"
 layer {
   name: "data_original"
-  type: "DataSingleton"
+  type: "Data"
   top: "data_original"
   top: "label"
   include {

@@ -38,7 +38,6 @@ if not os.path.exists(TGT):
 caffe.set_device(gpu)
 caffe.set_mode_gpu()
 net_img = caffe.Net(MODEL_FILE_IMG, CAFFE_MODEL, caffe.TEST)
-net_shape = caffe.Net(MODEL_FILE_SHAPE, CAFFE_MODEL, caffe.TEST)
 
 # open image lmdb
 lmdb_env = lmdb.open(LMDB_FILENAME_IMG)
@@ -75,6 +74,8 @@ for batch_id in range(num_batches):
 print 'Extracting features and labels for images done'
 print feat_matrix_img.shape
 print labels_img.shape
+
+net_shape = caffe.Net(MODEL_FILE_SHAPE, CAFFE_MODEL, caffe.TEST)
 
 # open shape lmdb
 lmdb_env = lmdb.open(LMDB_FILENAME_SHAPE)

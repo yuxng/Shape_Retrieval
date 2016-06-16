@@ -15,11 +15,11 @@ echo $id
 
 DATA=/
 
-TGT=/cvgl/u/yuxiang/lmdb/"$id"_test_shape/
-TXT=/cvgl/u/cwind/Shape_Retrieval/data/"$id"_test_shape.txt
+#TGT=/cvgl/u/yuxiang/lmdb/"$id"_test_shape/
+#TXT=/cvgl/u/cwind/Shape_Retrieval/data/"$id"_test_shape.txt
 
-#TGT=/cvgl/u/yuxiang/lmdb/"$id"_test_img/
-#TXT=/cvgl/u/cwind/Shape_Retrieval/data/tight_bbx/"$id"_test_img.txt
+TGT=/cvgl/u/yuxiang/lmdb/"$id"_test_img/
+TXT=/cvgl/u/cwind/Shape_Retrieval/data/tight_bbx/"$id"_test_img.txt
 
 TOOLS=caffe/build/tools
 

@@ -1,8 +1,8 @@
 name: "GoogleNet"
 layer {
-  name: "data_original"
+  name: "data"
   type: "Data"
-  top: "data_original"
+  top: "data"
   top: "label"
   include {
     phase: TEST
@@ -17,69 +17,8 @@ layer {
     backend: LMDB
   }
 }
-
 layer {
-  name: "grayscale"
-  type: "Convolution"
-  bottom: "data_original"
-  top: "data_gray"
-  param {
-    name: "gray_w"
-    lr_mult: 0
-    decay_mult: 0
-  }
-  param {
-    name: "gray_b"
-    lr_mult: 0
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 1
-    pad: 0
-    kernel_size: 1
-    stride: 1
-    weight_filler {
-      type: "bgr2gray"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-
-layer {
-  name: "sobel"
-  type: "Convolution"
-  bottom: "data_gray"
-  top: "data"
-  param {
-    name: "sobel_w"
-    lr_mult: 0
-    decay_mult: 0
-  }
-  param {
-    name: "sobel_b"
-    lr_mult: 0
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    pad: 1
-    kernel_size: 3
-    stride: 1
-    weight_filler {
-      type: "sobel"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-
-layer {
-  name: "conv1/7x7_s2_ours"
+  name: "conv1/7x7_s2"
   type: "Convolution"
   bottom: "data"
   top: "conv1/7x7_s2"
