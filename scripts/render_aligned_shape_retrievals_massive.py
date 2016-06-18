@@ -19,24 +19,25 @@ images_root_folder = '/cvgl/group/ImageNet3D/Retrievals/'
 # class_ids.sort()
 class_ids = [specified_cls]
 print class_ids
-# dst_root_folder = '/scratch/jingweij/render_test'
-dst_root_folder = '/cvgl/group/ImageNet3D/Retrievals_Aligned_New/'
+
+dst_root_folder = '/cvgl/group/ImageNet3D/Retrievals_Aligned_sobel/'
 if not os.path.exists(dst_root_folder):
     os.mkdir(dst_root_folder)
 g_blender_executable_path = '/cvgl/u/cwind/JointEmbedding/3rd_party/blender/blender'
-g_blank_blend_file_path = '/cvgl/u/jingweij/ImageNet3D/Shape_Retrieval/scripts/blank.blend'
-render_model_views_path = '/cvgl/u/jingweij/ImageNet3D/Shape_Retrieval/scripts/render_model_views.py'
+g_blank_blend_file_path = '/cvgl/u/jingweij/ObjectNet3D/ImageNet3D/Shape_Retrieval/scripts/blank.blend'
+render_model_views_path = '/cvgl/u/jingweij/ObjectNet3D/ImageNet3D/Shape_Retrieval/scripts/render_model_views.py'
 shapenetcore_root_folder = '/cvgl/group/ShapeNet/ShapeNetCore.v1/'
-view_point_root_folder = '/cvgl/group/ImageNet3D/Labels'
+view_point_root_folder = '/cvgl/group/ImageNet3D/Labels_new'
 distance_param = '1.33'
 
 for i, cls in enumerate(class_ids):
 #     if i != 0: continue
     print '%d/%d %s' % (i+1, len(class_ids), cls)
-    img_subfolder_list = os.listdir(os.path.join(images_root_folder, cls))
+    img_subfolder_list = os.listdir(os.path.join(images_root_folder, cls+'_sobel'))
     if not os.path.exists(os.path.join(dst_root_folder, cls)):
         os.mkdir(os.path.join(dst_root_folder, cls))
     length_img_subfolder = len(img_subfolder_list)
+
     for j, img_sfd in enumerate(img_subfolder_list):
         # if j % 50 == 0 or j == length_img_subfolder-1:
         print "[%s] %d/%d" % (datetime.datetime.now(), j, length_img_subfolder)
@@ -74,7 +75,7 @@ for i, cls in enumerate(class_ids):
             continue
         
         # create destination folder for this image
-        img_to_be_processed = os.path.join(images_root_folder, cls, img_sfd, img_sfd)
+        img_to_be_processed = os.path.join(images_root_folder, cls+'_sobel', img_sfd, img_sfd)
         dst_folder = os.path.join(dst_root_folder, cls, img_sfd)
         if not os.path.exists(dst_folder):
             os.mkdir(dst_folder)
@@ -88,7 +89,7 @@ for i, cls in enumerate(class_ids):
         shutil.copy(img_to_be_processed, dst_folder)
         
         # Read in the retrieved shape md5 list.
-        shape_list_txt = os.path.join(images_root_folder, cls, img_sfd, 'list.txt')
+        shape_list_txt = os.path.join(images_root_folder, cls+'_sobel', img_sfd, 'list.txt')
         shape_list = []
         with open(shape_list_txt) as shape_list_file:
             for line in shape_list_file:
